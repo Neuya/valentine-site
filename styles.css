@@ -121,6 +121,19 @@ body::after {
   box-shadow: 0 14px 30px rgba(24, 24, 27, 0.2);
 }
 
+#stepNo .result-image {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+#stepWd40 .result-image {
+  object-fit: contain;
+  object-position: center;
+}
+
 
 .love-note {
   width: min(92vw, 620px);
@@ -285,8 +298,33 @@ body::after {
   #louisImage {
     width: min(74vw, 280px);
     max-height: 34vh;
-    object-fit: contain;
+    object-fit: cover;
     object-position: top center;
+  }
+
+  #stepNo .result-image {
+    width: min(70vw, 260px);
+    max-height: 32vh;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  #stepLoveFinal .result-image {
+    width: min(68vw, 240px);
+    max-height: 26vh;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  #stepWd40 .result-image {
+    width: min(68vw, 240px);
+    max-height: 26vh;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  #stepLoveFinal .actions {
+    margin-top: 1.1rem;
   }
 }
 
