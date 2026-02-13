@@ -1,10 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Manrope:wght@600;700&display=swap");
+
 :root {
   --bg: #ffffff;
   --text: #18181b;
+  --romance: #be185d;
+  --soft-rose: #fdf2f8;
+  --soft-peach: #fff1f2;
   --yes: #16a34a;
   --yes-hover: #15803d;
   --no: #dc2626;
   --no-hover: #b91c1c;
+  --neutral: #374151;
+  --neutral-hover: #1f2937;
 }
 
 * {
@@ -18,50 +25,195 @@ body {
   place-items: center;
   background: var(--bg);
   color: var(--text);
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: 44vmax;
+  height: 44vmax;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  top: -18vmax;
+  left: -14vmax;
+  background: radial-gradient(circle, var(--soft-rose) 0%, rgba(253, 242, 248, 0) 70%);
+}
+
+body::after {
+  bottom: -20vmax;
+  right: -14vmax;
+  background: radial-gradient(circle, var(--soft-peach) 0%, rgba(255, 241, 242, 0) 72%);
 }
 
 .container {
-  width: min(92vw, 760px);
+  width: min(94vw, 760px);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.2rem 1rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.screen {
+  display: none;
+  animation: fadeIn 260ms ease;
+}
+
+.screen[data-active="true"] {
+  display: block;
+}
+
+.screen-sure {
+  position: relative;
+  min-height: clamp(360px, 62vh, 560px);
+  overflow: hidden;
 }
 
 .title {
   margin: 0;
-  font-size: clamp(2.2rem, 6vw, 4.6rem);
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 6vw, 4.9rem);
+  line-height: 1.08;
   letter-spacing: 0.02em;
   text-wrap: balance;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-weight: 700;
+  color: var(--romance);
+  text-shadow: 0 8px 28px rgba(190, 24, 93, 0.16);
+}
+
+.title::before {
+  content: "❤";
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: #e11d48;
+  line-height: 1;
+}
+
+.result-title {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--romance);
+  font-family: "Playfair Display", "Times New Roman", serif;
+}
+
+.result-image {
+  display: block;
+  width: min(88vw, 360px);
+  max-height: 46vh;
+  object-fit: cover;
+  margin: 1.2rem auto 0;
+  border-radius: 20px;
+  box-shadow: 0 14px 30px rgba(24, 24, 27, 0.2);
+}
+
+
+.love-card {
+  width: min(92vw, 620px);
+  margin: 0 auto;
+  padding: 1.4rem 1.2rem 1.6rem;
+  border: 2px solid #fbcfe8;
+  border-radius: 22px;
+  background: #fff7fb;
+  box-shadow: 0 12px 28px rgba(190, 24, 93, 0.12);
+}
+
+.love-card .result-title {
+  font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  line-height: 1.35;
 }
 
 .actions {
-  margin-top: 2.2rem;
-  display: flex;
+  margin-top: 2rem;
+  display: grid;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap;
+}
+
+.sure-frame {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 520px);
+  margin: 0 auto;
+}
+
+.emoji-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sure-emoji {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  user-select: none;
+  animation: emojiPop 0.9s ease;
+}
+
+.escape-area {
+  position: relative;
+  width: min(92vw, 640px);
+  height: clamp(280px, 46vh, 420px);
+  margin: 2rem auto 0;
+  border: 0;
+  border-radius: 24px;
+  background: #ffffff;
+}
+
+.escape-area .btn-yes {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-escape {
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  transform: translate(-50%, -50%);
 }
 
 .btn {
   border: 0;
-  border-radius: 16px;
-  min-width: 160px;
-  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  min-width: 220px;
+  padding: 1.05rem 1.75rem;
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   cursor: pointer;
-  transition: transform 120ms ease, filter 120ms ease;
+  box-shadow: 0 10px 24px rgba(24, 24, 27, 0.13);
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
+  transform: translateY(-2px) scale(1.01);
+  filter: brightness(1.04);
+  box-shadow: 0 14px 28px rgba(24, 24, 27, 0.16);
 }
 
 .btn:active {
   transform: translateY(0);
+}
+
+.escape-area .btn:hover {
+  transform: translate(-50%, -50%) scale(1.01);
+}
+
+.escape-area .btn:active {
+  transform: translate(-50%, -50%);
 }
 
 .btn-yes {
@@ -80,9 +232,43 @@ body {
   background: var(--no-hover);
 }
 
-.message {
-  min-height: 2rem;
-  margin-top: 1.6rem;
-  font-size: 1.05rem;
-  font-weight: 600;
+.btn-neutral {
+  background: var(--neutral);
+}
+
+.btn-neutral:hover {
+  background: var(--neutral-hover);
+}
+
+@media (max-width: 640px) {
+  .btn {
+    min-width: 190px;
+    font-size: 1.3rem;
+  }
+
+  .escape-area {
+    height: 52vh;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes emojiPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }

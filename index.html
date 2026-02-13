@@ -7,15 +7,108 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="container">
-      <h1 class="title">Would you be my Valentine?</h1>
+    <main class="container" id="app">
+      <section id="step1" class="screen" data-active="true">
+        <h1 class="title">Dear Celinrab, would you be my valentine?</h1>
+        <div class="actions">
+          <button id="yesBtn" class="btn btn-yes" type="button">Oui</button>
+          <button id="noBtn" class="btn btn-no" type="button">Non</button>
+        </div>
+      </section>
 
-      <div class="actions">
-        <button id="yesBtn" class="btn btn-yes" type="button">Oui</button>
-        <button id="noBtn" class="btn btn-no" type="button">Non</button>
-      </div>
+      <section id="stepNo" class="screen" aria-hidden="true">
+        <h2 class="result-title">😒😒😒😒😒😒😒</h2>
+        <img class="result-image" src="images/Macchia.png" alt="Macchia" />
+        <div class="actions">
+          <button id="backBtn" class="btn btn-neutral" type="button">Recommencer</button>
+        </div>
+      </section>
 
-      <p id="message" class="message" aria-live="polite"></p>
+      <section id="stepYes" class="screen" aria-hidden="true">
+        <h2 class="result-title">Trop cool en fait 💅💅💅</h2>
+        <img id="louisImage" class="result-image" src="images/louis.jpg" alt="Louis" />
+        <div class="actions">
+          <button id="continueBtn" class="btn btn-yes" type="button">Continuer</button>
+        </div>
+      </section>
+
+      <section id="step2" class="screen" aria-hidden="true">
+        <h2 class="result-title">Alors tu veux oui ou non?</h2>
+        <div id="escapeArea" class="escape-area">
+          <button id="yesStep2Btn" class="btn btn-yes" type="button">Oui</button>
+          <button id="noEscapeBtn" class="btn btn-no btn-escape" type="button">Non</button>
+        </div>
+      </section>
+
+      <section id="stepSlay" class="screen" aria-hidden="true">
+        <h2 class="result-title">T'as pas le choix en fait 💅</h2>
+        <img id="arianaImage" class="result-image" src="images/Ariana-Grande.jpg" alt="Ariana Grande" />
+        <div class="actions">
+          <button id="continueArianaBtn" class="btn btn-yes" type="button">Continuer</button>
+        </div>
+      </section>
+
+      <section id="stepAfterAriana" class="screen" aria-hidden="true">
+        <h2 class="result-title">Allez quelques petits efforts encore, tu confirmes?</h2>
+        <div class="actions">
+          <button id="yesAfterArianaBtn" class="btn btn-yes" type="button">Oui</button>
+          <button id="noAfterArianaBtn" class="btn btn-no" type="button">Non</button>
+        </div>
+      </section>
+
+      <section id="stepSure" class="screen screen-sure" aria-hidden="true">
+        <div id="emojiCanvas" class="emoji-canvas" aria-hidden="true"></div>
+        <div id="sureFrame" class="sure-frame">
+          <h2 class="result-title">T'es sûre???</h2>
+          <div class="actions">
+            <button id="yesSureBtn" class="btn btn-yes" type="button">Oui</button>
+            <button id="noSureBtn" class="btn btn-no" type="button">Non</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="stepChorizo" class="screen" aria-hidden="true">
+        <h2 class="result-title">Tu vois quand tu veux !</h2>
+        <img id="chorizoImage" class="result-image" src="images/chorizo.jpg" alt="Chorizo" />
+        <div class="actions">
+          <button id="continueChorizoBtn" class="btn btn-yes" type="button">Continuer</button>
+        </div>
+      </section>
+
+      <section id="stepFinalConfirm" class="screen" aria-hidden="true">
+        <h2 class="result-title">Dernière petite confirmation Céline. Would you be my valentine?</h2>
+        <div class="actions">
+          <button id="yesFinalBtn" class="btn btn-yes" type="button">Oui</button>
+          <button id="noFinalBtn" class="btn btn-no" type="button">Non</button>
+        </div>
+      </section>
+
+
+      <section id="stepLoveFinal" class="screen" aria-hidden="true">
+        <div class="love-card">
+          <h2 class="result-title">Bah voilà c'était pas si compliqué, tu es invité à passer la soirée avec moi ce Samedi 14 février 2026, je viens te chercher après le boulot 🥰</h2>
+          <img id="patinImage" class="result-image" src="images/patin.png" alt="Patin" />
+          <div class="actions">
+            <button id="backToStartFromLoveBtn" class="btn btn-yes" type="button">Retour au début</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="stepWd40" class="screen" aria-hidden="true">
+        <h2 class="result-title">Nan mais va falloir réparer tes doigts là tu sais pas cliquer 😒😒😒</h2>
+        <img id="wd40Image" class="result-image" src="images/wd40.jpg" alt="WD40" />
+        <div class="actions">
+          <button id="backFromWd40Btn" class="btn btn-neutral" type="button">Recommencer</button>
+        </div>
+      </section>
+
+      <section id="stepWitch" class="screen" aria-hidden="true">
+        <h2 class="result-title">POV: Tu prépares ta potion</h2>
+        <img id="witchImage" class="result-image" src="images/sorciere.jpg" alt="Sorciere" />
+        <div class="actions">
+          <button id="backFromWitchBtn" class="btn btn-neutral" type="button">Recommencer</button>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>
