@@ -187,7 +187,9 @@ body::after {
 .btn {
   border: 0;
   border-radius: 999px;
-  width: min(88vw, 320px);
+  min-width: 220px;
+  width: auto;
+  max-width: 92vw;
   padding: 1.05rem 1.75rem;
   font-size: 1.5rem;
   font-weight: 700;
@@ -259,9 +261,11 @@ body::after {
   }
 
   .btn {
-    width: min(92vw, 320px);
-    padding: 0.95rem 1.2rem;
-    font-size: 1.2rem;
+    min-width: 190px;
+    width: auto;
+    max-width: 92vw;
+    padding: 1rem 1.25rem;
+    font-size: 1.3rem;
   }
 
   .escape-area {
@@ -276,6 +280,13 @@ body::after {
   .love-note {
     width: min(94vw, 620px);
     font-size: 1rem;
+  }
+
+  #louisImage {
+    width: min(74vw, 280px);
+    max-height: 34vh;
+    object-fit: contain;
+    object-position: top center;
   }
 }
 
