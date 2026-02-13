@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -27,7 +31,8 @@ body {
   color: var(--text);
   font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body::before,
@@ -57,7 +62,7 @@ body::after {
 .container {
   width: min(94vw, 760px);
   text-align: center;
-  padding: 2.2rem 1rem 2rem;
+  padding: clamp(1rem, 4vw, 2.2rem) 1rem 2rem;
   position: relative;
   z-index: 1;
 }
@@ -182,7 +187,7 @@ body::after {
 .btn {
   border: 0;
   border-radius: 999px;
-  min-width: 220px;
+  width: min(88vw, 320px);
   padding: 1.05rem 1.75rem;
   font-size: 1.5rem;
   font-weight: 700;
@@ -235,13 +240,42 @@ body::after {
 }
 
 @media (max-width: 640px) {
+  .container {
+    width: min(96vw, 760px);
+    padding: 1rem 0.75rem 1.4rem;
+  }
+
+  .title {
+    font-size: clamp(1.9rem, 8.4vw, 2.8rem);
+  }
+
+  .result-title {
+    font-size: clamp(1.25rem, 6vw, 1.9rem);
+  }
+
+  .result-image {
+    width: min(92vw, 340px);
+    max-height: 40vh;
+  }
+
   .btn {
-    min-width: 190px;
-    font-size: 1.3rem;
+    width: min(92vw, 320px);
+    padding: 0.95rem 1.2rem;
+    font-size: 1.2rem;
   }
 
   .escape-area {
-    height: 52vh;
+    width: min(94vw, 640px);
+    height: clamp(240px, 46vh, 340px);
+  }
+
+  .screen-sure {
+    min-height: clamp(320px, 56vh, 460px);
+  }
+
+  .love-note {
+    width: min(94vw, 620px);
+    font-size: 1rem;
   }
 }
 
